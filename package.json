@@ -1,0 +1,37 @@
+{
+  "name": "appi_postgresql_sequilize_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon src/index.js --exec babel-node ",
+    "build": "babel src --out-dir dist",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscar02r/appi_postgresql_sequilize_1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oscar02r/appi_postgresql_sequilize_1/issues"
+  },
+  "homepage": "https://github.com/oscar02r/appi_postgresql_sequilize_1#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.16.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "nodemon": "^1.19.1"
+  }
+}
