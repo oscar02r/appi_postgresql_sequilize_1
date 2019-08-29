@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-export const sequelise = new Sequelize (
+export const sequelize = new Sequelize (
   'prostgres',
   'prostgres',
   '112401',

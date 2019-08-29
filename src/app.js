@@ -1,6 +1,7 @@
 import express, {json} from 'express';
 import morgan from 'morgan';
 
+// initialization
 const app = express();
 
 
@@ -13,7 +14,7 @@ app.use(morgan('dev'));
 app.use(json());
 
 //routes
-app.use('/api/proyects',projectRoutes);
+app.use('/api/projects',projectRoutes);
 app.use('/api/tasks',taskRoutes);
 
 export default app;
