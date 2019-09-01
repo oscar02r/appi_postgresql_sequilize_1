@@ -1,5 +1,16 @@
 import Project from '../models/Project';
 
+
+export async function getProjects(req, res){
+  try {
+    const projects = await Project.findAll();
+    res.json({data:projects});
+  } catch (error) {
+    console.log(error);
+
+  }
+}
+
 export async function createProject(req, res) {
   const { name, priority, description, deliverydate } = req.body;
   try {
@@ -29,5 +40,22 @@ export async function createProject(req, res) {
         message: 'Something goes wrong',
         data:{}
       });
+  }
+}
+
+export async function getOneProject(req, res){
+  try {
+    const {id} = req.params;
+  const project = await Project.findOne({
+     where:{
+       id
+      }
+   });
+
+   res.json({
+     data:project
+   });
+  } catch (error) {
+    console.log(error);
   }
 }
