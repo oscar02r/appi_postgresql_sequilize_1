@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
 
 export const sequelize = new Sequelize (
-  'prostgres',
-  'prostgres',
-  '112401',
+  'postgres', //db
+  'postgres', // username
+  '112401', //pass
   {
       host: 'localhost',
       dialect: 'postgres',
@@ -11,7 +11,7 @@ export const sequelize = new Sequelize (
           max: 5,
           min: 0,
           require: 30000,
-          idlel: 1000,
+          idle: 1000,
 
       },
       logging: false
