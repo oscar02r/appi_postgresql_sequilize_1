@@ -77,3 +77,33 @@ export async function deleteProject(req, res) {
     console.log(error);
   }
 }
+
+export async function updateProject (req, res){
+  try {
+    const {id} = req.params;
+    const {name, priority, description, deliverydate} = req.body;
+    const projects = await Project.findAll({
+      attributes:['id','name','priority', 'description', 'deliverydate'],
+     where:{id} 
+    });
+    
+    if(projects.length > 0){
+      projects.forEach( async project => {
+        await project.update({
+          name,
+          priority,
+          description,
+          deliverydate
+        });
+      })
+    }
+
+    return res.json({
+       message: 'Project update succesfully',
+       data: projects
+    });
+
+  } catch (error) {
+    
+  }
+}
