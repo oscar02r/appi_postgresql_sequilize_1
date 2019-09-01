@@ -1,8 +1,9 @@
 import Task from '../models/Task';
 
 export async function createTask(req, res) {
-    const { name, done, projectid } = req.body;
-    const newTask = await Task.create(
+    try {
+        const { name, done, projectid } = req.body;
+        let newTask = await Task.create(
         {
             name,
             done,
@@ -13,10 +14,15 @@ export async function createTask(req, res) {
          }
      
     );
-
-    res.json({
-        messaje: 'Task created succesfully',
-    });
+    if(newTask){
+        return res.json({
+            messaje: 'Task created succesfully',
+        });
+    }
+    
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export async function getTasks(req, res) {
