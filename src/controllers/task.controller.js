@@ -41,7 +41,16 @@ export async function updateTask(req, res) {
 }
 
 export async function deleteTask(req, res) {
-
+    try {
+        const {id} = req.params;
+        const count = await Task.destroy({
+            where:{id}
+        });
+      return res.json({messaje:'Task deleted'});
+    } catch (error) {
+        console.log(error);
+    }
+  
 }
 
 export async function getOneTask(req, res) {
