@@ -35,12 +35,12 @@ var Project = _database.sequelize.define('projects', {
 });
 
 Project.hasMany(_Task["default"], {
-  foreignKey: 'projectId',
+  foreignKey: 'projectid',
   sourceKey: 'id'
 });
 
 _Task["default"].belongsTo(Project, {
-  foreignKey: 'projectId',
+  foreignKey: 'projectid',
   sourceKey: 'id'
 });
 

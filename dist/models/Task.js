@@ -22,7 +22,7 @@ var Task = _database.sequelize.define('tasks', {
   done: {
     type: _sequelize["default"].BOOLEAN
   },
-  projectId: {
+  projectid: {
     type: _sequelize["default"].INTEGER
   }
 }, {

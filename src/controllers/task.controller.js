@@ -37,7 +37,25 @@ export async function getTasks(req, res) {
 }
 
 export async function updateTask(req, res) {
+  const {id} = req.params;
+  const {name, priority, projectid, done} = req.body;
+  const task = await Task.findOne({
+      attributes:['name','projectid','done','id'],
+      where:{id}
+  });
 
+  const updateTask = await Task.update({
+      name,
+      priority,
+      done,
+      projectid
+  },
+  {
+      where:{id}
+  });
+  res.json({messaje: "Task update",
+    updateTask
+});
 }
 
 export async function deleteTask(req, res) {
@@ -54,11 +72,22 @@ export async function deleteTask(req, res) {
 }
 
 export async function getOneTask(req, res) {
-
+  const {id} = req.params;
+  const task = await Task.findOne({
+      where:{id},
+      fields:['name','done','projectid']
+  });
+  res.json({task});
 }
 
 export async function getTaskByProject(req, res) {
+  const {projectid} = req.params;
 
+ const tasks = await Task.findAll({
+     attributes:['id','projectid', 'done', 'name'],
+      where:{projectid}
+  });
+  res.json(tasks);
 }
 
 
